@@ -1,6 +1,7 @@
 import 'package:covid19_app/datasource.dart';
 import 'package:covid19_app/pages/faqs.dart';
 import 'package:flutter/material.dart';
+import 'package:covid19_app/pages/openWebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoPanel extends StatelessWidget {
@@ -28,7 +29,12 @@ class InfoPanel extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              launch('https://covid19responsefund.org/');
+              var route = new MaterialPageRoute(
+                builder: (BuildContext context) =>
+                new WebViewTest(value1: 'DONATE',value: 'https://covid19responsefund.org'),
+              );
+              Navigator.of(context).push(route);
+              //launch('https://covid19responsefund.org/');
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
@@ -45,7 +51,13 @@ class InfoPanel extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              launch('https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters');
+              var route = new MaterialPageRoute(
+                builder: (BuildContext context) =>
+                new WebViewTest(value1: 'MYTH BUSTERS', value: 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters'),
+              );
+              Navigator.of(context).push(route);
+              //launch('https://covid19responsefund.org/');
+
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
